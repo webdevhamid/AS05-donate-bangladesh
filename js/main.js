@@ -20,6 +20,9 @@ const labelNoakhali = document.querySelector("#label-noakhali-total-fund");
 const labelFeni = document.querySelector("#label-feni-total-fund");
 const labelQuotaMovement = document.querySelector("#label-quota-total-fund");
 
+// Modal element
+const modalElement = document.querySelector("#open_model");
+
 // container
 const historyContainer = document.querySelector("#history-container");
 
@@ -41,6 +44,9 @@ function handleNoakhaliCampaign() {
   if (!validateInput(donateAmount)) {
     return;
   }
+
+  // Open the static modal
+  modalElement.showModal();
 
   amountNoakhali += donateAmount;
   myAccountBalance -= donateAmount;
@@ -66,6 +72,9 @@ function handleFeniCampaign() {
     return;
   }
 
+  // Open static modal
+  modalElement.showModal();
+
   amountFeni += donateAmount;
   myAccountBalance -= donateAmount;
 
@@ -89,6 +98,9 @@ function handleQuotaCampaign() {
   if (!validateInput(donateAmount)) {
     return;
   }
+
+  // Open static modal
+  modalElement.showModal();
 
   amountQuotaMovement += donateAmount;
   myAccountBalance -= donateAmount;
