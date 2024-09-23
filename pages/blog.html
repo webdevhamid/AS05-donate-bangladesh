@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwindcss CDN  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI CDN  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Google Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Donate Bangladesh</title>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-color": "#B4F461",
+              "secondary-color": "#F9F7F3",
+              "gray-color": "rgba(17, 17, 17, 0.05)",
+            },
+            fontFamily: {
+              lexend: ["Lexend", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-lexend bg-secondary-color">
+    <header class="py-6">
+      <!-- Navbar start  -->
+      <div class="container mx-auto">
+        <div class="navbar">
+          <div class="navbar-start">
+            <!-- Blog Page Button  -->
+            <a
+              href="../index.html"
+              class="btn btn-primary bg-primary-color border-primary-color border-gray-color hover:bg-black hover:text-white hover:border-gray-color font-bold px-8 py-3 hidden md:flex"
+              >Home</a
+            >
+
+            <div class="dropdown md:hidden">
+              <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h7"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3"
+              >
+                <li>
+                  <div class="flex items-center justify-start gap-3">
+                    <img src="../assets/coin.png" alt="" />
+                    <span class="text-black font-medium text-xl">5500 BDT</span>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    href="./pages/blog.html"
+                    class="btn bg-primary-color text-black hover:btn-outline border-none font-bold hover:bg-primary-color px-8 py-3"
+                    target="_blank"
+                    >Blog</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="navbar-center">
+            <!-- Logo  -->
+            <a
+              class="flex items-center gap-4 justify-between font-semibold text-xl text-black"
+              href="./index.html"
+              ><span><img src="../assets/logo.png" alt="" /></span> Donate Bangladesh</a
+            >
+          </div>
+          <div class="navbar-end hidden md:flex">
+            <div class="flex items-center justify-between gap-3">
+              <img src="../assets/coin.png" alt="" />
+              <span class="text-black font-medium text-xl">5500 BDT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar end  -->
+    </header>
+    <main class="bg-white py-20">
+      <div class="container mx-auto">
+        <!-- FAQ section  -->
+        <section class="py-8">
+          <h1 class="text-3xl lg:text-4xl text-black font-extrabold my-8">Important FAQ</h1>
+
+          <!-- Accordion  -->
+          <div class="join join-vertical w-full">
+            <div class="collapse collapse-arrow join-item border py-5">
+              <input type="radio" name="my-accordion-4" checked="checked" />
+              <div class="collapse-title text-xl font-medium text-black">
+                What is the Document Object Model (DOM)?
+              </div>
+              <div class="collapse-content">
+                <p class="text-black font-normal">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptate,
+                  deleniti sapiente maxime repellat iure distinctio voluptatem, fugit odio aut et
+                  officia vero eius reprehenderit veniam. Error, corporis voluptatibus! Accusamus.
+                </p>
+              </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border py-5">
+              <input type="radio" name="my-accordion-4" />
+              <div class="collapse-title text-xl font-medium text-black">
+                How do you select an element from the DOM?
+              </div>
+              <div class="collapse-content">
+                <p class="text-black font-normal">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptate,
+                  deleniti sapiente maxime repellat iure distinctio voluptatem, fugit odio aut et
+                  officia vero eius reprehenderit veniam. Error, corporis voluptatibus! Accusamus.
+                </p>
+              </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border py-5">
+              <input type="radio" name="my-accordion-4" />
+              <div class="collapse-title text-xl font-medium text-black">
+                What is event delegation in the context of the DOM, and why is it useful?
+              </div>
+              <div class="collapse-content">
+                <p class="text-black font-normal">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptate,
+                  deleniti sapiente maxime repellat iure distinctio voluptatem, fugit odio aut et
+                  officia vero eius reprehenderit veniam. Error, corporis voluptatibus! Accusamus.
+                </p>
+              </div>
+            </div>
+            <div class="collapse collapse-arrow join-item border py-5">
+              <input type="radio" name="my-accordion-4" />
+              <div class="collapse-title text-xl font-medium text-black">
+                How do you manipulate an element's attributes and styles using the DOM?
+              </div>
+              <div class="collapse-content">
+                <p class="text-black font-normal">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptate,
+                  deleniti sapiente maxime repellat iure distinctio voluptatem, fugit odio aut et
+                  officia vero eius reprehenderit veniam. Error, corporis voluptatibus! Accusamus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer  -->
+    <footer class="py-10"></footer>
+  </body>
+</html>
