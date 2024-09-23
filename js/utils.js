@@ -16,8 +16,12 @@ const validateInput = function (inputAmount) {
     typeof inputAmount !== "number" ||
     inputAmount > myAccountBalance ||
     inputAmount <= 0
-  )
-    return;
+  ) {
+    alert("Invalid Input!");
+    return false;
+  } else {
+    return true;
+  }
 };
 
 const clearInput = function (inputElement) {
@@ -47,4 +51,8 @@ const insertTransaction = function (inputAmount, donateType) {
     `;
 
   historyContainer.insertAdjacentHTML("afterbegin", html);
+};
+
+const getInputValue = function (input) {
+  return +input.value;
 };
