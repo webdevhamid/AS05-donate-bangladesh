@@ -35,7 +35,10 @@ let amountFeni = 600;
 let amountQuotaMovement = 2400;
 
 // Handler function for Noakhali campaign
-function handleNoakhaliCampaign() {
+function handleNoakhaliCampaign(e) {
+  // Prevent the default reloading behavior
+  e.preventDefault();
+
   const donateAmount = getInputValue(inputAmountNoakhali);
 
   clearInput(inputAmountNoakhali);
@@ -62,7 +65,10 @@ function handleNoakhaliCampaign() {
 }
 
 // Handler function for Feni campaign
-function handleFeniCampaign() {
+function handleFeniCampaign(e) {
+  // Prevent the default reloading behavior
+  e.preventDefault();
+
   const donateAmount = getInputValue(inputAmountFeni);
 
   clearInput(inputAmountFeni);
@@ -89,7 +95,10 @@ function handleFeniCampaign() {
 }
 
 // Handler function for Quota-movement campaign
-function handleQuotaCampaign() {
+function handleQuotaCampaign(e) {
+  // Prevent the default reloading behavior
+  e.preventDefault();
+
   const donateAmount = getInputValue(inputAmountQuota);
 
   clearInput(inputAmountQuota);
