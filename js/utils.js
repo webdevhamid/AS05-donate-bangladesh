@@ -17,7 +17,7 @@ const validateInput = function (inputAmount) {
     inputAmount > myAccountBalance ||
     inputAmount <= 0
   ) {
-    alert("Invalid Input!");
+    alert("Invalid Donation Amount!");
     return false;
   } else {
     return true;
