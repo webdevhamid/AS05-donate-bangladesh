@@ -19,6 +19,7 @@ const labelMyAccountBalance = document.querySelector("#label-my-account-balance"
 const labelNoakhali = document.querySelector("#label-noakhali-total-fund");
 const labelFeni = document.querySelector("#label-feni-total-fund");
 const labelQuotaMovement = document.querySelector("#label-quota-total-fund");
+const labelMobileAccountBalance = document.querySelector("#mobile-my-account-balance");
 
 // Modal element
 const modalElement = document.querySelector("#open_model");
@@ -29,7 +30,7 @@ const historyContainer = document.querySelector("#history-container");
 // Current account balance
 let myAccountBalance = 5500;
 
-// Noakhali Flood campaign amount
+// Noakhali, Feni and quota-movement account balance
 let amountNoakhali = 0;
 let amountFeni = 600;
 let amountQuotaMovement = 2400;
@@ -43,7 +44,7 @@ function handleNoakhaliCampaign(e) {
 
   clearInput(inputAmountNoakhali);
 
-  // Safety Guard
+  // Return the function Immediately if the input is invalid
   if (!validateInput(donateAmount)) {
     return;
   }
@@ -54,13 +55,14 @@ function handleNoakhaliCampaign(e) {
   amountNoakhali += donateAmount;
   myAccountBalance -= donateAmount;
 
-  // Update fund amount
+  // Update fund amount label
   updateLabel(labelNoakhali, amountNoakhali);
 
   // Update my account label
   updateLabel(labelMyAccountBalance, myAccountBalance);
+  updateLabel(labelMobileAccountBalance, myAccountBalance);
 
-  // Store the latest transaction to history
+  // Store the latest transaction to history container
   insertTransaction(donateAmount, "noakhali");
 }
 
@@ -73,7 +75,7 @@ function handleFeniCampaign(e) {
 
   clearInput(inputAmountFeni);
 
-  // Safety Guard
+  // Return the function Immediately if the input is invalid
   if (!validateInput(donateAmount)) {
     return;
   }
@@ -89,6 +91,7 @@ function handleFeniCampaign(e) {
 
   // Update my account label
   updateLabel(labelMyAccountBalance, myAccountBalance);
+  updateLabel(labelMobileAccountBalance, myAccountBalance);
 
   // Store the latest transaction to history
   insertTransaction(donateAmount, "feni");
@@ -103,7 +106,7 @@ function handleQuotaCampaign(e) {
 
   clearInput(inputAmountQuota);
 
-  // Safety Guard
+  // Return the function Immediately if the input is invalid
   if (!validateInput(donateAmount)) {
     return;
   }
@@ -119,6 +122,7 @@ function handleQuotaCampaign(e) {
 
   // Update my account label
   updateLabel(labelMyAccountBalance, myAccountBalance);
+  updateLabel(labelMobileAccountBalance, myAccountBalance);
 
   // Store the latest transaction to the history section
   insertTransaction(donateAmount, "quota movement");
@@ -129,9 +133,11 @@ btnDonateFeni.addEventListener("click", handleFeniCampaign);
 btnDonateQuotaMovement.addEventListener("click", handleQuotaCampaign);
 
 btnDonationTop.addEventListener("click", function () {
+  // Toggle donation and history buttons and sections
   toggleButton(btnDonationTop, btnHistoryTop, sectionCard, sectionHistory);
 });
 
 btnHistoryTop.addEventListener("click", function () {
+  // Toggle donation and history buttons and sections
   toggleButton(btnHistoryTop, btnDonationTop, sectionHistory, sectionCard);
 });

@@ -38,6 +38,7 @@
     </script>
   </head>
   <body class="font-lexend bg-secondary-color min-h-screen">
+    <!-- Header  -->
     <header class="py-3 wlg:py-6 sticky top-0 z-10 backdrop-blur-2xl">
       <!-- Navbar start  -->
       <div class="container mx-auto">
@@ -49,7 +50,7 @@
               class="btn btn-primary bg-primary-color border-primary-color border-gray-color hover:bg-black hover:text-white hover:border-gray-color font-bold px-8 py-3 hidden md:flex"
               >Blog</a
             >
-
+            <!-- Mobile Menu   -->
             <div class="dropdown md:hidden">
               <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                 <svg
@@ -67,6 +68,7 @@
                   />
                 </svg>
               </div>
+              <!-- menu list  -->
               <ul
                 tabindex="0"
                 class="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3 bg-white"
@@ -74,7 +76,9 @@
                 <li>
                   <div class="flex items-center justify-start gap-3">
                     <img src="./assets/coin.png" alt="" />
-                    <span class="text-black font-medium text-xl">5500 BDT</span>
+                    <span class="text-black font-medium text-xl" id="mobile-my-account-balance"
+                      >5500 BDT</span
+                    >
                   </div>
                 </li>
                 <li>
@@ -148,7 +152,7 @@
         <section class="flex flex-col gap-8" id="card-section">
           <!-- card 1  -->
           <div
-            class="card card-side border p-3 lg:p-8 items-center flex-col lg:flex-row"
+            class="card card-side border p-3 lg:p-8 items-center flex-col lg:flex-row border-primary-color"
             id="campaign-noakhali"
           >
             <figure class="rounded-lg overflow-hidden w-full lg:w-fit max-h-[440px]">
@@ -190,7 +194,7 @@
           </div>
           <!-- card 2 -->
           <div
-            class="card card-side border p-3 lg:p-8 items-center flex-col lg:flex-row"
+            class="card card-side border p-3 lg:p-8 items-center flex-col lg:flex-row border-primary-color"
             id="campaign-feni"
           >
             <figure class="rounded-lg overflow-hidden w-full lg:w-fit max-h-[440px]">
@@ -233,7 +237,7 @@
           </div>
           <!-- card 3  -->
           <div
-            class="card card-side border p-3 lg:p-8 items-center flex-col lg:flex-row"
+            class="card card-side border p-3 lg:p-8 items-center flex-col lg:flex-row border-primary-color"
             id="campaign-quota-movement"
           >
             <figure class="rounded-lg overflow-hidden w-full lg:w-fit max-h-[440px]">
