@@ -1,15 +1,3 @@
-// Reusable function for toggling buttons
-// const toggleButton = function (activeEl, notActiveEl, activeSection, notActiveSection) {
-//   activeEl.classList.add("bg-primary-color");
-//   activeEl.classList.remove("bg-transparent");
-
-//   activeSection.classList.remove("hidden");
-//   notActiveSection.classList.add("hidden");
-
-//   notActiveEl.classList.remove("bg-primary-color");
-//   notActiveEl.classList.add("bg-transparent");
-// };
-
 const toggleButton = function (buttonId) {
   if (buttonId === "btn-donation-top") {
     btnDonationTop.classList.toggle("!bg-primary-color");

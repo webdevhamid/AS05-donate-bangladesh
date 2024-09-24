@@ -12,9 +12,6 @@ const inputAmountFeni = document.querySelector("#input-amount-feni");
 const inputAmountQuota = document.querySelector("#input-amount-quota-movement");
 
 // Donate buttons
-// const btnDonateNoakhali = document.querySelector("#btn-donate-noakhali");
-// const btnDonateFeni = document.querySelector("#btn-donate-feni");
-// const btnDonateQuotaMovement = document.querySelector("#btn-donate-quota-movement");
 const allDonateButtons = document.querySelectorAll(".btn-donate");
 
 // Labels
@@ -44,7 +41,6 @@ function handleCampaign(e) {
   e.preventDefault();
 
   const currentBtnId = e.target.id;
-  console.log(currentBtnId);
   const currentInputElement = e.target.previousElementSibling;
   const donateAmount = getInputValue(currentInputElement);
 
@@ -69,117 +65,9 @@ function handleCampaign(e) {
   insertTransaction(donateAmount, currentBtnId);
 }
 
-// Handler function for Noakhali campaign
-// function handleNoakhaliCampaign(e) {
-//   // Prevent the default reloading behavior
-//   e.preventDefault();
-
-//   const donateAmount = getInputValue(inputAmountNoakhali);
-
-//   clearInput(inputAmountNoakhali);
-
-//   // Return the function Immediately if the input is invalid
-//   if (!validateInput(donateAmount)) {
-//     return;
-//   }
-
-//   // Open the static modal
-//   modalElement.showModal();
-
-//   amountNoakhali += donateAmount;
-//   myAccountBalance -= donateAmount;
-
-//   // Update fund amount label
-//   updateLabel(labelNoakhali, amountNoakhali);
-
-//   // Update my account label
-//   updateLabel(labelMyAccountBalance, myAccountBalance);
-//   updateLabel(labelMobileAccountBalance, myAccountBalance);
-
-//   // Store the latest transaction to history container
-//   insertTransaction(donateAmount, "noakhali");
-// }
-
-// Handler function for Feni campaign
-// function handleFeniCampaign(e) {
-//   // Prevent the default reloading behavior
-//   e.preventDefault();
-
-//   const donateAmount = getInputValue(inputAmountFeni);
-
-//   clearInput(inputAmountFeni);
-
-//   // Return the function Immediately if the input is invalid
-//   if (!validateInput(donateAmount)) {
-//     return;
-//   }
-
-//   // Open static modal
-//   modalElement.showModal();
-
-//   amountFeni += donateAmount;
-//   myAccountBalance -= donateAmount;
-
-//   // Update fund amount
-//   updateLabel(labelFeni, amountFeni);
-
-//   // Update my account label
-//   updateLabel(labelMyAccountBalance, myAccountBalance);
-//   updateLabel(labelMobileAccountBalance, myAccountBalance);
-
-//   // Store the latest transaction to history
-//   insertTransaction(donateAmount, "feni");
-// }
-
-// Handler function for Quota-movement campaign
-// function handleQuotaCampaign(e) {
-//   // Prevent the default reloading behavior
-//   e.preventDefault();
-
-//   const donateAmount = getInputValue(inputAmountQuota);
-
-//   clearInput(inputAmountQuota);
-
-//   // Return the function Immediately if the input is invalid
-//   if (!validateInput(donateAmount)) {
-//     return;
-//   }
-
-//   // Open static modal
-//   modalElement.showModal();
-
-//   amountQuotaMovement += donateAmount;
-//   myAccountBalance -= donateAmount;
-
-//   // Update Fund amount
-//   updateLabel(labelQuotaMovement, amountQuotaMovement);
-
-//   // Update my account label
-//   updateLabel(labelMyAccountBalance, myAccountBalance);
-//   updateLabel(labelMobileAccountBalance, myAccountBalance);
-
-//   // Store the latest transaction to the history section
-//   insertTransaction(donateAmount, "quota movement");
-// }
-
-// btnDonateNoakhali.addEventListener("click", handleNoakhaliCampaign);
-// btnDonateFeni.addEventListener("click", handleFeniCampaign);
-// btnDonateQuotaMovement.addEventListener("click", handleQuotaCampaign);
-
-//
 allDonateButtons.forEach(function (button) {
   button.addEventListener("click", handleCampaign);
 });
-
-// btnDonationTop.addEventListener("click", function () {
-//   // Toggle donation and history buttons and sections
-//   toggleButton(btnDonationTop, btnHistoryTop, sectionCard, sectionHistory);
-// });
-
-// btnHistoryTop.addEventListener("click", function () {
-//   // Toggle donation and history buttons and sections
-//   toggleButton(btnHistoryTop, btnDonationTop, sectionHistory, sectionCard);
-// });
 
 navbarActionButtons.forEach(function (button) {
   button.addEventListener("click", function (event) {
