@@ -4,15 +4,18 @@ const btnHistoryTop = document.querySelector("#btn-history-top");
 const sectionCard = document.querySelector("#card-section");
 const sectionHistory = document.querySelector("#history-section");
 
+const navbarActionButtons = document.querySelectorAll(".btn-action-top");
+
 // Input Fields
 const inputAmountNoakhali = document.querySelector("#input-amount-noakhali");
 const inputAmountFeni = document.querySelector("#input-amount-feni");
 const inputAmountQuota = document.querySelector("#input-amount-quota-movement");
 
 // Donate buttons
-const btnDonateNoakhali = document.querySelector("#btn-donate-noakhali");
-const btnDonateFeni = document.querySelector("#btn-donate-feni");
-const btnDonateQuotaMovement = document.querySelector("#btn-donate-quota-movement");
+// const btnDonateNoakhali = document.querySelector("#btn-donate-noakhali");
+// const btnDonateFeni = document.querySelector("#btn-donate-feni");
+// const btnDonateQuotaMovement = document.querySelector("#btn-donate-quota-movement");
+const allDonateButtons = document.querySelectorAll(".btn-donate");
 
 // Labels
 const labelMyAccountBalance = document.querySelector("#label-my-account-balance");
@@ -36,13 +39,17 @@ let amountFeni = 600;
 let amountQuotaMovement = 2400;
 
 // Handler function for Noakhali campaign
-function handleNoakhaliCampaign(e) {
+function handleCampaign(e) {
   // Prevent the default reloading behavior
   e.preventDefault();
 
-  const donateAmount = getInputValue(inputAmountNoakhali);
+  const currentBtnId = e.target.id;
+  console.log(currentBtnId);
+  const currentInputElement = e.target.previousElementSibling;
+  const donateAmount = getInputValue(currentInputElement);
 
-  clearInput(inputAmountNoakhali);
+  // Clear the current input value
+  clearInput(currentInputElement);
 
   // Return the function Immediately if the input is invalid
   if (!validateInput(donateAmount)) {
@@ -52,92 +59,131 @@ function handleNoakhaliCampaign(e) {
   // Open the static modal
   modalElement.showModal();
 
-  amountNoakhali += donateAmount;
-  myAccountBalance -= donateAmount;
+  // Store the new total fund amount of the current campaign
+  const campaignTotalAmount = updateAmount(currentBtnId, donateAmount);
 
-  // Update fund amount label
-  updateLabel(labelNoakhali, amountNoakhali);
+  // Update all the label of the current campaign
+  updateLabel(currentBtnId, campaignTotalAmount);
 
-  // Update my account label
-  updateLabel(labelMyAccountBalance, myAccountBalance);
-  updateLabel(labelMobileAccountBalance, myAccountBalance);
-
-  // Store the latest transaction to history container
-  insertTransaction(donateAmount, "noakhali");
+  // Store the latest transaction to the history container
+  insertTransaction(donateAmount, currentBtnId);
 }
+
+// Handler function for Noakhali campaign
+// function handleNoakhaliCampaign(e) {
+//   // Prevent the default reloading behavior
+//   e.preventDefault();
+
+//   const donateAmount = getInputValue(inputAmountNoakhali);
+
+//   clearInput(inputAmountNoakhali);
+
+//   // Return the function Immediately if the input is invalid
+//   if (!validateInput(donateAmount)) {
+//     return;
+//   }
+
+//   // Open the static modal
+//   modalElement.showModal();
+
+//   amountNoakhali += donateAmount;
+//   myAccountBalance -= donateAmount;
+
+//   // Update fund amount label
+//   updateLabel(labelNoakhali, amountNoakhali);
+
+//   // Update my account label
+//   updateLabel(labelMyAccountBalance, myAccountBalance);
+//   updateLabel(labelMobileAccountBalance, myAccountBalance);
+
+//   // Store the latest transaction to history container
+//   insertTransaction(donateAmount, "noakhali");
+// }
 
 // Handler function for Feni campaign
-function handleFeniCampaign(e) {
-  // Prevent the default reloading behavior
-  e.preventDefault();
+// function handleFeniCampaign(e) {
+//   // Prevent the default reloading behavior
+//   e.preventDefault();
 
-  const donateAmount = getInputValue(inputAmountFeni);
+//   const donateAmount = getInputValue(inputAmountFeni);
 
-  clearInput(inputAmountFeni);
+//   clearInput(inputAmountFeni);
 
-  // Return the function Immediately if the input is invalid
-  if (!validateInput(donateAmount)) {
-    return;
-  }
+//   // Return the function Immediately if the input is invalid
+//   if (!validateInput(donateAmount)) {
+//     return;
+//   }
 
-  // Open static modal
-  modalElement.showModal();
+//   // Open static modal
+//   modalElement.showModal();
 
-  amountFeni += donateAmount;
-  myAccountBalance -= donateAmount;
+//   amountFeni += donateAmount;
+//   myAccountBalance -= donateAmount;
 
-  // Update fund amount
-  updateLabel(labelFeni, amountFeni);
+//   // Update fund amount
+//   updateLabel(labelFeni, amountFeni);
 
-  // Update my account label
-  updateLabel(labelMyAccountBalance, myAccountBalance);
-  updateLabel(labelMobileAccountBalance, myAccountBalance);
+//   // Update my account label
+//   updateLabel(labelMyAccountBalance, myAccountBalance);
+//   updateLabel(labelMobileAccountBalance, myAccountBalance);
 
-  // Store the latest transaction to history
-  insertTransaction(donateAmount, "feni");
-}
+//   // Store the latest transaction to history
+//   insertTransaction(donateAmount, "feni");
+// }
 
 // Handler function for Quota-movement campaign
-function handleQuotaCampaign(e) {
-  // Prevent the default reloading behavior
-  e.preventDefault();
+// function handleQuotaCampaign(e) {
+//   // Prevent the default reloading behavior
+//   e.preventDefault();
 
-  const donateAmount = getInputValue(inputAmountQuota);
+//   const donateAmount = getInputValue(inputAmountQuota);
 
-  clearInput(inputAmountQuota);
+//   clearInput(inputAmountQuota);
 
-  // Return the function Immediately if the input is invalid
-  if (!validateInput(donateAmount)) {
-    return;
-  }
+//   // Return the function Immediately if the input is invalid
+//   if (!validateInput(donateAmount)) {
+//     return;
+//   }
 
-  // Open static modal
-  modalElement.showModal();
+//   // Open static modal
+//   modalElement.showModal();
 
-  amountQuotaMovement += donateAmount;
-  myAccountBalance -= donateAmount;
+//   amountQuotaMovement += donateAmount;
+//   myAccountBalance -= donateAmount;
 
-  // Update Fund amount
-  updateLabel(labelQuotaMovement, amountQuotaMovement);
+//   // Update Fund amount
+//   updateLabel(labelQuotaMovement, amountQuotaMovement);
 
-  // Update my account label
-  updateLabel(labelMyAccountBalance, myAccountBalance);
-  updateLabel(labelMobileAccountBalance, myAccountBalance);
+//   // Update my account label
+//   updateLabel(labelMyAccountBalance, myAccountBalance);
+//   updateLabel(labelMobileAccountBalance, myAccountBalance);
 
-  // Store the latest transaction to the history section
-  insertTransaction(donateAmount, "quota movement");
-}
+//   // Store the latest transaction to the history section
+//   insertTransaction(donateAmount, "quota movement");
+// }
 
-btnDonateNoakhali.addEventListener("click", handleNoakhaliCampaign);
-btnDonateFeni.addEventListener("click", handleFeniCampaign);
-btnDonateQuotaMovement.addEventListener("click", handleQuotaCampaign);
+// btnDonateNoakhali.addEventListener("click", handleNoakhaliCampaign);
+// btnDonateFeni.addEventListener("click", handleFeniCampaign);
+// btnDonateQuotaMovement.addEventListener("click", handleQuotaCampaign);
 
-btnDonationTop.addEventListener("click", function () {
-  // Toggle donation and history buttons and sections
-  toggleButton(btnDonationTop, btnHistoryTop, sectionCard, sectionHistory);
+//
+allDonateButtons.forEach(function (button) {
+  button.addEventListener("click", handleCampaign);
 });
 
-btnHistoryTop.addEventListener("click", function () {
-  // Toggle donation and history buttons and sections
-  toggleButton(btnHistoryTop, btnDonationTop, sectionHistory, sectionCard);
+// btnDonationTop.addEventListener("click", function () {
+//   // Toggle donation and history buttons and sections
+//   toggleButton(btnDonationTop, btnHistoryTop, sectionCard, sectionHistory);
+// });
+
+// btnHistoryTop.addEventListener("click", function () {
+//   // Toggle donation and history buttons and sections
+//   toggleButton(btnHistoryTop, btnDonationTop, sectionHistory, sectionCard);
+// });
+
+navbarActionButtons.forEach(function (button) {
+  button.addEventListener("click", function (event) {
+    const buttonId = event.target.id;
+    toggleButton(buttonId);
+  });
 });
