@@ -77,9 +77,9 @@ const insertTransaction = function (inputAmount, currentBtnId) {
         <h1 class="text-black font-bold lg:text-xl text-lg">
         ${inputAmount} Taka is Donated for ${
     currentBtnId === "btn-donate-noakhali"
-      ? "Famine-2024 in Feni"
+      ? "Flood in Noakhali"
       : currentBtnId === "btn-donate-feni"
-      ? "Flood Relief in Noakhali"
+      ? "Flood Relief in Feni"
       : "Aid for injured in the quota movement"
   }, Bangladesh
         </h1>
