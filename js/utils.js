@@ -1,10 +1,11 @@
+// Reusable function for toggling navbar top action buttons and their sections
 const toggleButton = function () {
   btnDonationTop.classList.toggle("!bg-primary-color");
   btnHistoryTop.classList.toggle("!bg-primary-color");
   sectionCard.classList.toggle("hidden");
   sectionHistory.classList.toggle("hidden");
 };
-
+// Reusable function for validating the input value
 const validateInput = function (inputAmount) {
   if (
     !inputAmount ||
@@ -19,36 +20,42 @@ const validateInput = function (inputAmount) {
   }
 };
 
+// Reusable function for getting the input value
 const getInputValue = function (input) {
   return +input.value;
 };
 
+// Reusable function for clearing the input field
 const clearInput = function (inputElement) {
   inputElement.value = "";
 };
 
+// Reusable function for updating all the amount
 const updateAmount = function (currentBtnId, donatedAmount) {
   // Deduct the donated amount from my account balance
   myAccountBalance -= donatedAmount;
 
   if (currentBtnId === "btn-donate-noakhali") {
-    // Update the current fund amount of the Noakhali campaign
+    // Update the current amount of the Noakhali campaign
     amountNoakhali += donatedAmount;
     return amountNoakhali;
   } else if (currentBtnId === "btn-donate-feni") {
-    // Update the current fund amount of the Feni campaign
+    // Update the current amount of the Feni campaign
     amountFeni += donatedAmount;
     return amountFeni;
   } else {
-    // Update the current fund amount of the Quota-movement campaign
+    // Update the current amount of the Quota-movement campaign
     amountQuotaMovement += donatedAmount;
     return amountQuotaMovement;
   }
 };
 
+// Reusable function for updating all the labels
 const updateLabel = function (currentBtnId, newTotalAmount) {
   const currencyString = "BDT";
+  // Update the label of my account balance
   labelMyAccountBalance.textContent = `${myAccountBalance} ${currencyString}`;
+  // Update the label of my account balance on mobile navbar
   labelMobileAccountBalance.textContent = `${myAccountBalance} ${currencyString}`;
 
   if (currentBtnId === "btn-donate-noakhali") {
@@ -58,10 +65,12 @@ const updateLabel = function (currentBtnId, newTotalAmount) {
     // Update the Feni Fund label
     labelFeni.textContent = `${newTotalAmount} ${currencyString}`;
   } else {
+    // Update the Quota movement label
     labelQuotaMovement.textContent = `${newTotalAmount} ${currencyString}`;
   }
 };
 
+// Reusable function for inserting new history item to the history section
 const insertTransaction = function (inputAmount, currentBtnId) {
   const html = `
     <div class="flex flex-col p-8 border rounded-xl">
