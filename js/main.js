@@ -70,8 +70,5 @@ allDonateButtons.forEach(function (button) {
 });
 
 navbarActionButtons.forEach(function (button) {
-  button.addEventListener("click", function (event) {
-    const buttonId = event.target.id;
-    toggleButton(buttonId);
-  });
+  button.addEventListener("click", toggleButton);
 });

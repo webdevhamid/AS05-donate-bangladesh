@@ -1,15 +1,8 @@
-const toggleButton = function (buttonId) {
-  if (buttonId === "btn-donation-top") {
-    btnDonationTop.classList.toggle("!bg-primary-color");
-    btnHistoryTop.classList.toggle("!bg-primary-color");
-    sectionCard.classList.remove("hidden");
-    sectionHistory.classList.add("hidden");
-  } else if (buttonId === "btn-history-top") {
-    btnHistoryTop.classList.toggle("!bg-primary-color");
-    btnDonationTop.classList.toggle("!bg-primary-color");
-    sectionCard.classList.add("hidden");
-    sectionHistory.classList.remove("hidden");
-  }
+const toggleButton = function () {
+  btnDonationTop.classList.toggle("!bg-primary-color");
+  btnHistoryTop.classList.toggle("!bg-primary-color");
+  sectionCard.classList.toggle("hidden");
+  sectionHistory.classList.toggle("hidden");
 };
 
 const validateInput = function (inputAmount) {
